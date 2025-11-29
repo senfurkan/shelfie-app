@@ -1,0 +1,56 @@
+//rnfes
+
+import { StyleSheet, Text, View, Image } from "react-native";
+import Logo from "../assets/img/logo_light.png";
+import { Link } from "expo-router";
+import ThemedView from "../components/ThemedView";
+import ThemedLogo from "../components/ThemedLogo";
+import ThemedText from "../components/ThemedText";
+import Spacer from "../components/Spacer";
+
+const Home = () => {
+  return (
+    <ThemedView style={styles.container}>
+      <ThemedLogo />
+      <Spacer />
+
+      {/* bir styles içeriğinde mevcut olmayıp sadece o bileşene özel stil kullanılması gerektiği durumlarda inline stili aşağıdaki gibi kullanıyoruz */}
+      {/* <Text style={[styles.title, { backgroundColor: "#fff" }]}>
+        The number 1
+      </Text> */}
+
+      <ThemedText style={styles.title}>The number 1</ThemedText>
+      <ThemedText style={{ marginTop: 10, marginBottom: 30 }}>
+        Reading List App
+      </ThemedText>
+
+      <Link href="/about" style={styles.link}>
+        <ThemedText>About</ThemedText>
+      </Link>
+      <Link href="/contact" style={styles.link}>
+        <ThemedText>Contact</ThemedText>
+      </Link>
+    </ThemedView>
+  );
+};
+
+export default Home;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  img: {
+    marginVertical: 20,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
+  },
+});
